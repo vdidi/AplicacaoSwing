@@ -44,7 +44,7 @@ public class TelaProduto extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
         spnQtde = new javax.swing.JSpinner();
         txtValor_Unit = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -98,7 +98,7 @@ public class TelaProduto extends javax.swing.JFrame {
                     .addGroup(pnlCamposLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(155, 155, 155))
         );
         pnlCamposLayout.setVerticalGroup(
@@ -109,7 +109,7 @@ public class TelaProduto extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(pnlCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -133,6 +133,11 @@ public class TelaProduto extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
 
@@ -255,6 +260,18 @@ public class TelaProduto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        
+        txtNome.setText("");
+        
+        txtMarca.setText("");
+        
+        spnQtde.setValue(0);
+        
+        txtValor_Unit.setText("");
+        
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,12 +322,12 @@ public class TelaProduto extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnlBotoes;
     private javax.swing.JPanel pnlCampos;
     private javax.swing.JPanel pnlPrincipal;
     private javax.swing.JSpinner spnQtde;
     private javax.swing.JTable tblProduto;
+    private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtValor_Unit;
     // End of variables declaration//GEN-END:variables
