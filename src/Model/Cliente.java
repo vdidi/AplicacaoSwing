@@ -6,15 +6,15 @@ package Model;
  */
 public class Cliente extends Pessoa{
     
-    private int id;
+    private int cli_id;
   
     //gets e sets
     public int getId() {
-        return id;
+        return cli_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.cli_id = id;
     }
-
+ 
 }
