@@ -20,13 +20,15 @@ import javax.swing.JTextArea;
  */
 public class TelaInicial extends javax.swing.JFrame {
     
-    public static TelaInicial instancia;
+    private static TelaInicial instancia;
     /**
      * Creates new form TelaInicial
      */
-    public TelaInicial() {
+    private TelaInicial() {
         initComponents();
         opcaoMenu();
+        setLocationRelativeTo(null);
+        
     }
     //Padrão SingleTon
     public static synchronized TelaInicial getInstance(){
@@ -218,11 +220,16 @@ public class TelaInicial extends javax.swing.JFrame {
     public void opcaoMenu(){     
         addKeyListener(new KeyAdapter (){
             @Override
-            public void keyPressed(KeyEvent e){
-            //getID = retorn o TIPO do evento    
+            public void keyPressed(KeyEvent e){ 
             int id = e.getKeyCode();
             //int tecla = KeyEvent.VK_1;
                 if(id == VK_1){
+                    
+                    TelaProduto.getInstance().setVisible(true);
+                    
+                    TelaProduto.getInstance().setLocationRelativeTo(null);
+                
+                    dispose();
                     
                 } else if(id == VK_2){
                 
