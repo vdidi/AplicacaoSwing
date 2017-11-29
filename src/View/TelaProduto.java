@@ -5,8 +5,14 @@
  */
 package View;
 
+import Controller.ControleProduto;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,12 +20,15 @@ import java.awt.GridLayout;
  */
 public class TelaProduto extends javax.swing.JFrame {
     private static TelaProduto instancia;
+    DecimalFormat formato = new DecimalFormat("##.##");
+    BigDecimal big2 = new BigDecimal(0.2);
     /**
      * Creates new form TelaProduto
      */
     public TelaProduto() {
         initComponents();
         pnlBotoes.setLayout(new FlowLayout());
+        
     }
     //Padrão Singleton
     public static synchronized TelaProduto getInstance(){
@@ -120,7 +129,7 @@ public class TelaProduto extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("<html><center>Tela de Produtos</center></html>");
+        jLabel1.setText("<html><center>Produtos</center></html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         pnlBotoes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -257,18 +266,23 @@ public class TelaProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+       ControleProduto cp = new ControleProduto();
+        try {
+            cp.cadastrarProduto(txtNome.getText(), txtMarca.getText(), (int)spnQtde.getValue(), 
+                   Double.parseDouble(txtValor_Unit.getText().trim()));
+            JOptionPane.showMessageDialog(this, "Produto salvo com sucesso!");
+            limparCampos();
+            //Método para listar os produtos (Futuramente implementado)
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, 
+				"Nao foi possivel salvar produto!" + 
+				e.getLocalizedMessage()
+			);
+        } 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        
-        txtNome.setText("");
-        
-        txtMarca.setText("");
-        
-        spnQtde.setValue(0);
-        
-        txtValor_Unit.setText("");
+        limparCampos();
         
     }//GEN-LAST:event_btnCancelarActionPerformed
 
@@ -331,4 +345,13 @@ public class TelaProduto extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtValor_Unit;
     // End of variables declaration//GEN-END:variables
+    public void limparCampos(){
+        txtNome.setText("");
+        
+        txtMarca.setText("");
+        
+        spnQtde.setValue(0);
+        
+        txtValor_Unit.setText("");
+    }
 }

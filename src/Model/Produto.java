@@ -12,14 +12,6 @@ public class Produto {
     private int qtde;
     private double valor_unit;
 
-    //construtor
-    public Produto(int id, String nome, String marca, int qtde, double valor_unit) {
-        this.id = id;
-        this.nome = nome;
-        this.marca = marca;
-        this.qtde = qtde;
-        this.valor_unit = valor_unit;
-    }
 
     // gets e sets
     public int getId() {

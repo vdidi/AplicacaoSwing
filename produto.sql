@@ -5,3 +5,5 @@ marcar varchar(50),
 qtde integer,
 valor_unit double precision
 )
+
+ALTER TABLE produto RENAME COLUMN marcar TO marca;
